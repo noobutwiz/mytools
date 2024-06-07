@@ -21,10 +21,13 @@
 
     <style>
       body {
+        background: rgb(79, 15, 137);
+        background: linear-gradient(
+          90deg,
+          rgba(79, 15, 137, 1) 32%,
+          rgba(99, 39, 147, 1) 83%
+        );
         margin: 0;
-        background-image: url(https://static.wixstatic.com/media/d888e0_16fad7da4df74b739f30c43134eeb819~mv2.png/v1/fill/w_1667,h_806,al_c,q_90,enc_auto/d888e0_16fad7da4df74b739f30c43134eeb819~mv2.png);
-        object-fit: cover;
-        background-repeat: no-repeat;
       }
 
       #boxResult {
@@ -43,7 +46,16 @@
         color: white;
       }
 
-      /* Loader */
+      #sectionOne {
+        height: 700px;
+
+        }
+      }
+
+      #sectionTwo {
+        width: 100%;
+        height: auto; /* This ensures the image height adjusts proportionally */
+      }
     </style>
   </head>
   <body>
@@ -53,7 +65,9 @@
       data-bs-theme="dark"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="noobutwiz.png" alt="" /></a>
+        <a class="navbar-brand" href="#sectionOne"
+          ><img src="noobutwiz.png" alt=""
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -79,6 +93,11 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#" target="_blank"
                 >Salesforce</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#sectionTwo"
+                >Announcements</a
               >
             </li>
             <li class="nav-item">
@@ -131,42 +150,50 @@
       </div>
     </nav>
 
-    <section>
-      <div class="card p-3 border-0 m-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 id="searchEmployee" class="text-center">Search an Employee</h5>
-            <div class="card p-3">
-              <div class="row">
-                <div class="col-6">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"
-                      >Employee Name:</span
-                    >
-                    <input
-                      id="nameInput"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter the employee name"
-                      aria-label="Employee Name"
-                      aria-describedby="basic-addon1"
-                    />
-                  </div>
+    <!-- Section One -->
 
-                  <div class="position-relative bottom-0 end-0">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      onclick="queryEmployee()"
-                    >
-                      Search
-                    </button>
+    <section
+      id="sectionOne"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="col-lg-12 col-md-6 col-sm-3">
+        <div id="sectionOne2" class="card p-3 border-0 m-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 id="searchEmployee" class="text-center">
+                Search an Employee
+              </h5>
+              <div class="card p-3">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"
+                        >Employee Name:</span
+                      >
+                      <input
+                        id="nameInput"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter the employee name"
+                        aria-label="Employee Name"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                    <div class="position-relative bottom-0 end-0 p-2">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="queryEmployee()"
+                      >
+                        Search
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div id="boxResult" class="card p-3">
-                    <div class="mt-3" id="wrapIDResult" style="display: none">
-                      <div id="result"></div>
+                  <div class="col-md-6">
+                    <div id="boxResult" class="card p-3">
+                      <div class="mt-3" id="wrapIDResult" style="display: none">
+                        <div id="result"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -174,6 +201,53 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="sectionTwo">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              id=""
+              src="sectionTwo.png"
+              class="d-block w-100 img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://static.wixstatic.com/media/d888e0_16fad7da4df74b739f30c43134eeb819~mv2.png/v1/fill/w_1892,h_806,al_c,q_90,enc_auto/d888e0_16fad7da4df74b739f30c43134eeb819~mv2.png"
+              class="d-block w-100 img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://static.wixstatic.com/media/344d0c_25fbb760b38646c99c22e0400a0a8d82~mv2.jpg/v1/fill/w_1620,h_638,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/344d0c_25fbb760b38646c99c22e0400a0a8d82~mv2.jpg"
+              class="d-block w-100 img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </section>
     <footer class="card border-0 bg-dark vstack gap-1">
@@ -199,6 +273,8 @@
       src="https://kit.fontawesome.com/94d1906724.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Your existing HTML content -->
 
     <script>
       var csvData; // Global variable to store CSV data
@@ -240,6 +316,15 @@
           return char.toUpperCase();
         });
       }
+
+      // Add event listener for 'keydown' event on the name input field
+      document
+        .getElementById("nameInput")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            queryEmployee(); // Call queryEmployee() when Enter key is pressed
+          }
+        });
 
       function queryEmployee() {
         var name = capitalizeSyllables(
