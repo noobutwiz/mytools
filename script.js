@@ -1,10 +1,6 @@
 var csvData; // Global variable to store CSV data
 
 // Function to load the CSV file automatically
-window.onload = function () {
-  loadCSVFile();
-};
-
 function loadCSVFile() {
   var file = "employees.csv"; // Assuming employees.csv is in the same folder
   var xhr = new XMLHttpRequest();
@@ -22,14 +18,20 @@ function loadCSVFile() {
     }
   };
 
+  xhr.onerror = function () {
+    console.error("An error occurred while loading the CSV file.");
+  };
+
   xhr.open("GET", file, true);
   xhr.send();
 }
 
+// Function to capitalize the first letter of a string
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Function to capitalize syllables in a string
 function capitalizeSyllables(string) {
   return string.replace(/\b\w/g, function (char) {
     return char.toUpperCase();
@@ -37,13 +39,19 @@ function capitalizeSyllables(string) {
 }
 
 // Add event listener for 'keydown' event on the name input field
-document
-  .getElementById("nameInput")
-  .addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      queryEmployee(); // Call queryEmployee() when Enter key is pressed
-    }
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("nameInput")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // Prevent default form submission behavior
+        queryEmployee(); // Call queryEmployee() when Enter key is pressed
+      }
+    });
+
+  // Load CSV file automatically when the window is loaded
+  loadCSVFile();
+});
 
 function queryEmployee() {
   // Check if the search button is clicked within section one and if the input field is empty
