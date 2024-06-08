@@ -1,10 +1,4 @@
 body {
-  background: rgb(79, 15, 137);
-  background: linear-gradient(
-    90deg,
-    rgba(79, 15, 137, 1) 32%,
-    rgba(99, 39, 147, 1) 83%
-  );
   margin: 0;
 }
 
@@ -47,4 +41,38 @@ footer {
 .hover:hover {
   /* background-color: #f0f0f0; Example: Light gray background on hover */
   transform: scale(1.05); /* Example: Slightly scale up on hover */
+}
+
+/* For Converter */
+
+/* For Second Converter */
+#secondCard0 {
+  background-color: #80b9ad;
+  position: relative;
+}
+
+#secondCard1 {
+  background-color: #80b9ad;
+}
+
+#secondButton {
+  background-color: #538392;
+}
+
+.hover-size-effect {
+  transition: transform 0.3s ease; /* Smooth transition for the transform property */
+}
+.hover-size-effect:hover {
+  transform: scale(
+    1.1
+  ); /* Scale the element to 110% of its original size on hover */
+}
+
+#confettiCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Make the canvas transparent to mouse events */
 }
