@@ -124,6 +124,14 @@ function queryEmployee() {
 var conversionChart;
 var conversionCount = 0; // Counter for conversion queries
 
+// Function to handle the Enter key press event
+function handleKeyPress(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    convertSeconds();
+  }
+}
+
 function convertSeconds() {
   var input = document.getElementById("secondsInput").value;
   if (!input || isNaN(input)) {
@@ -220,12 +228,31 @@ function convertSeconds() {
   });
 }
 
-// Event listener for "Enter" key press
+// Add event listener for Enter key press on the input field
 document
   .getElementById("secondsInput")
-  .addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      convertSeconds();
-    }
-  });
+  .addEventListener("keypress", handleKeyPress);
+
+// FOR BACK-TO-TOP BUTTON
+
+// Get the button
+let mybutton = document.getElementById("btn-back-to-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.addEventListener("scroll", scrollFunction);
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

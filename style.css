@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-#boxResult {
+/* #boxResult {
   height: 400px;
   overflow-y: auto;
 }
@@ -11,7 +11,7 @@ body {
   #boxResult {
     height: auto;
   }
-}
+} */
 
 footer {
   background-color: black;
@@ -19,12 +19,12 @@ footer {
 }
 
 #sectionOne {
-  height: 700px;
+  height: auto;
 }
 
 #sectionTwo {
   width: 100%;
-  height: auto; /* This ensures the image height adjusts proportionally */
+  height: auto; /*This ensures the image height adjusts proportionally*/
 }
 
 #sectionThree {

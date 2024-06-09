@@ -6,7 +6,6 @@
     <title>Home | June UTL</title>
 
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
 
     <!-- Bootstrap -->
     <link
@@ -46,7 +45,7 @@
   <body>
     <header></header>
     <nav
-      class="navbar navbar-expand-lg bg-dark border-bottom border-body mb-3"
+      class="navbar navbar-expand-lg bg-dark border-bottom border-body"
       data-bs-theme="dark"
     >
       <div class="container-fluid">
@@ -174,89 +173,86 @@
     </nav>
 
     <!-- Section One -->
+    <section id="sectionOne">
+      <div class="container">
+        <div class="row">
+          <!-- Search an Employee -->
+          <div class="col-md-6">
+            <div class="card p-3 border-0 mt-3">
+              <div
+                class="card p-3 justify-content-center align-items-center border-0"
+              >
+                <h5 class="text-center">Search an Employee</h5>
+              </div>
 
-    <section
-      id="sectionOne"
-      class="d-flex justify-content-center align-items-center mb-3 mt-3"
-    >
-      <div class="col-12 col-lg-12 col-md-6">
-        <div id="sectionOne2" class="card p-3 border-0 mt-3">
-          <div class="card">
-            <div class="card p-3">
-              <div class="row">
-                <div class="col-md-6">
-                  <h5 id="searchEmployee" class="text-center">
-                    Search an Employee
-                  </h5>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"
-                      >Employee Name:</span
-                    >
-                    <input
-                      id="nameInput"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter the employee name"
-                      aria-label="Employee Name"
-                      aria-describedby="basic-addon1"
-                    />
-                  </div>
-                  <div class="position-relative bottom-0 end-0 p-2">
-                    <button
-                      type="button"
-                      class="btn btn-primary hover"
-                      onclick="queryEmployee()"
-                    >
-                      Search
-                    </button>
-                  </div>
-                  <div id="boxResult" class="card p-3 mb-3">
-                    <div class="mt-3" id="wrapIDResult" style="display: none">
-                      <div id="result"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div id="secondCard0" class="card col-12 p-3">
-                    <canvas id="confettiCanvas"></canvas>
-                    <div
-                      id="secondCard1"
-                      class="card p-3 justify-content-center align-items-center border-0"
-                    >
-                      <h5>Seconds to Minutes Converter</h5>
-                    </div>
-                    <div class="form-group">
-                      <label for="secondsInput">Enter Seconds:</label>
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="secondsInput"
-                        placeholder="Enter seconds"
-                      />
-                    </div>
-                    <button
-                      id="secondButton"
-                      type="button"
-                      class="btn btn-primary mt-3"
-                      onclick="convertSeconds()"
-                    >
-                      Convert
-                    </button>
-                    <div
-                      id="resultConversion"
-                      class="card justify-content-center align-items-center p-3 border-0 m-3 hover-size-effect"
-                      style="height: 56px"
-                    ></div>
-                    <canvas
-                      id="conversionChart"
-                      width="400"
-                      height="200"
-                    ></canvas>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"
+                  >Employee Name:</span
+                >
+                <input
+                  id="nameInput"
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter the employee name"
+                  aria-label="Employee Name"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="position-relative bottom-0 end-0 p-2">
+                <button
+                  type="button"
+                  class="btn btn-primary hover mb-3"
+                  onclick="queryEmployee()"
+                >
+                  Search
+                </button>
+                <div id="boxResult" class="card p-3 mb-3">
+                  <div class="mt-3" id="wrapIDResult" style="display: none">
+                    <div id="result"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Seconds to Minutes Converter -->
+          <div class="col-md-6">
+            <div class="card p-3 border-0 m-3">
+              <canvas id="confettiCanvas"></canvas>
+              <div
+                class="card p-3 justify-content-center align-items-center border-0"
+              >
+                <h5>Seconds to Minutes Converter</h5>
+              </div>
+              <div class="form-group">
+                <label for="secondsInput">Enter Seconds:</label>
+                <input
+                  type="number"
+                  class="form-control mt-3"
+                  id="secondsInput"
+                  placeholder="Enter seconds"
+                />
+              </div>
+              <button
+                id="secondButton"
+                type="button"
+                class="btn btn-primary mt-3"
+                onclick="convertSeconds()"
+              >
+                Convert
+              </button>
+              <canvas id="conversionChart" width="400" height="200"></canvas>
+              <div
+                id="resultConversion"
+                class="card justify-content-center align-items-center p-3 border-0 m-3 hover-size-effect"
+                style="height: 56px"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional row for long query result -->
+        <div class="row">
+          <div class="col-md-6 overflow-auto"></div>
+          <div class="col-md-6 overflow-auto"></div>
         </div>
       </div>
     </section>
@@ -408,33 +404,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      // FOR BACK-TO-TOP BUTTON
-
-      // Get the button
-      let mybutton = document.getElementById("btn-back-to-top");
-
-      // When the user scrolls down 20px from the top of the document, show the button
-      window.addEventListener("scroll", scrollFunction);
-
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
-
-      // When the user clicks on the button, scroll to the top of the document
-      mybutton.addEventListener("click", backToTop);
-
-      function backToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
