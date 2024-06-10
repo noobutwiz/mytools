@@ -121,8 +121,6 @@ function queryEmployee() {
 
 // FOR CONVERTER
 
-// FOR CONVERTER
-
 var conversionChart;
 var conversionData = {}; // Object to store conversion count per date
 
@@ -149,8 +147,8 @@ conversionChart = new Chart(ctx, {
       {
         label: "Number of Conversions",
         data: [],
-        backgroundColor: "#80B9AD",
-        borderColor: "#538392",
+        backgroundColor: "#0086FF",
+        borderColor: "#0d6efd",
         borderWidth: 1,
       },
     ],
