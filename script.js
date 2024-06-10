@@ -122,7 +122,41 @@ function queryEmployee() {
 // FOR CONVERTER
 
 var conversionChart;
-var conversionCount = 0; // Counter for conversion queries
+var conversionCount = parseInt(localStorage.getItem("conversionCount")) || 0; // Retrieve count from localStorage or initialize to 0
+
+// Function to initialize the conversion chart
+function initializeChart() {
+  var ctx = document.getElementById("conversionChart").getContext("2d");
+  conversionChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Conversion Count"],
+      datasets: [
+        {
+          label: "Number of Conversions",
+          data: [conversionCount],
+          backgroundColor: ["#339eff"],
+          borderColor: ["#538392"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+}
+
+// Call initializeChart() to create the chart when the script loads
+initializeChart();
 
 // Function to handle the Enter key press event
 function handleKeyPress(event) {
@@ -181,6 +215,11 @@ function convertSeconds() {
 
   // Increment the conversion count
   conversionCount++;
+  localStorage.setItem("conversionCount", conversionCount); // Store the updated count in localStorage
+
+  // Update the chart to display conversion count
+  conversionChart.data.datasets[0].data = [conversionCount];
+  conversionChart.update();
 
   // Trigger confetti effect
   var canvas = document.getElementById("confettiCanvas");
@@ -192,39 +231,6 @@ function convertSeconds() {
     particleCount: 100,
     spread: 70,
     origin: { y: 0.6 },
-  });
-
-  // Update the chart to display conversion count
-  if (conversionChart) {
-    conversionChart.destroy();
-  }
-
-  var ctx = document.getElementById("conversionChart").getContext("2d");
-  conversionChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["Conversion Count"],
-      datasets: [
-        {
-          label: "Number of Conversions",
-          data: [conversionCount],
-          backgroundColor: ["#80B9AD"],
-          borderColor: ["#538392"],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
-      },
-    },
   });
 }
 

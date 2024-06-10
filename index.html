@@ -198,22 +198,22 @@
                   aria-describedby="basic-addon1"
                 />
               </div>
-              <div class="position-relative bottom-0 end-0 p-2">
-                <button
-                  type="button"
-                  class="btn btn-primary hover mb-3"
-                  onclick="queryEmployee()"
-                >
-                  Search
-                </button>
-                <div id="boxResult" class="card p-3 mb-3">
-                  <div class="mt-3" id="wrapIDResult" style="display: none">
-                    <div id="result"></div>
-                  </div>
+
+              <button
+                type="button"
+                class="btn btn-primary hover mb-3"
+                onclick="queryEmployee()"
+              >
+                Search
+              </button>
+              <div id="boxResult" class="card p-3 mb-3" style="height: 300px">
+                <div class="mt-3" id="wrapIDResult" style="display: none">
+                  <div id="result"></div>
                 </div>
               </div>
             </div>
           </div>
+
           <!-- Seconds to Minutes Converter -->
           <div class="col-md-6">
             <div class="card p-3 border-0 m-3">
@@ -235,7 +235,7 @@
               <button
                 id="secondButton"
                 type="button"
-                class="btn btn-primary mt-3"
+                class="btn btn-primary hover mt-3"
                 onclick="convertSeconds()"
               >
                 Convert
@@ -248,11 +248,6 @@
               ></div>
             </div>
           </div>
-        </div>
-        <!-- Additional row for long query result -->
-        <div class="row">
-          <div class="col-md-6 overflow-auto"></div>
-          <div class="col-md-6 overflow-auto"></div>
         </div>
       </div>
     </section>

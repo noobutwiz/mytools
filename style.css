@@ -55,10 +55,6 @@ footer {
   background-color: #80b9ad;
 }
 
-#secondButton {
-  background-color: #538392;
-}
-
 .hover-size-effect {
   transition: transform 0.3s ease; /* Smooth transition for the transform property */
 }
