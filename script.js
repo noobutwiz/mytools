@@ -122,7 +122,8 @@ function queryEmployee() {
 // FOR CONVERTER
 
 var conversionChart;
-var conversionCount = parseInt(localStorage.getItem("conversionCount")) || 0; // Retrieve count from localStorage or initialize to 0
+var conversionCounts =
+  JSON.parse(localStorage.getItem("conversionCounts")) || {}; // Retrieve counts from localStorage or initialize to an empty object
 
 // Function to initialize the conversion chart
 function initializeChart() {
@@ -130,23 +131,29 @@ function initializeChart() {
   conversionChart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["Conversion Count"],
+      labels: Object.keys(conversionCounts),
       datasets: [
         {
           label: "Number of Conversions",
-          data: [conversionCount],
-          backgroundColor: ["#339eff"],
-          borderColor: ["#538392"],
+          data: Object.values(conversionCounts),
+          backgroundColor: "#339eff",
+          borderColor: "#538392",
           borderWidth: 1,
         },
       ],
     },
     options: {
       scales: {
+        xAxes: [
+          {
+            stacked: true,
+          },
+        ],
         yAxes: [
           {
             ticks: {
               beginAtZero: true,
+              stepSize: 1,
             },
           },
         ],
@@ -191,35 +198,27 @@ function convertSeconds() {
     return;
   }
 
+  var currentDate = new Date().toLocaleDateString(); // Get current date in format MM/DD/YYYY
   var seconds = parseInt(input);
-  var minutes = Math.floor(seconds / 60);
-  var remainingSeconds = seconds % 60;
-  var resultConversionString =
-    seconds +
-    " Seconds = " +
-    (minutes + remainingSeconds / 60).toFixed(2) +
-    " Minutes = ";
-  if (minutes === 1) {
-    resultConversionString += "1 Minute";
-  } else {
-    resultConversionString += minutes + " Minutes";
-  }
-  resultConversionString += " and ";
-  if (remainingSeconds === 1) {
-    resultConversionString += "1 Second";
-  } else {
-    resultConversionString += remainingSeconds + " Seconds";
-  }
-  document.getElementById("resultConversion").innerText =
-    resultConversionString;
 
-  // Increment the conversion count
-  conversionCount++;
-  localStorage.setItem("conversionCount", conversionCount); // Store the updated count in localStorage
+  // Update conversion count for current date
+  if (conversionCounts[currentDate]) {
+    conversionCounts[currentDate] += 1;
+  } else {
+    conversionCounts[currentDate] = 1;
+  }
 
-  // Update the chart to display conversion count
-  conversionChart.data.datasets[0].data = [conversionCount];
+  localStorage.setItem("conversionCounts", JSON.stringify(conversionCounts)); // Store the updated counts in localStorage
+
+  // Update the chart to display conversion counts
+  conversionChart.data.labels = Object.keys(conversionCounts);
+  conversionChart.data.datasets[0].data = Object.values(conversionCounts);
   conversionChart.update();
+
+  // Display result
+  document.getElementById(
+    "resultConversion"
+  ).innerText = `Conversion recorded for ${currentDate}: ${seconds} seconds.`;
 
   // Trigger confetti effect
   var canvas = document.getElementById("confettiCanvas");

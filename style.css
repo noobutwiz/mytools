@@ -2,8 +2,8 @@ body {
   margin: 0;
 }
 
-/* #boxResult {
-  height: 400px;
+#boxResult {
+  height: 300px;
   overflow-y: auto;
 }
 
@@ -11,7 +11,7 @@ body {
   #boxResult {
     height: auto;
   }
-} */
+}
 
 footer {
   background-color: black;
