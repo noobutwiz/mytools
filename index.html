@@ -85,7 +85,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link hover" aria-current="page" href="#sectionThree"
-                >Reports Guide</a
+                >Guides</a
               >
             </li>
             <li class="nav-item">
@@ -114,21 +114,45 @@
                 >CX Charter Form</a
               >
             </li>
-            <li class="nav-item">
+
+            <li class="nav-item dropdown">
               <a
-                class="nav-link hover"
-                href="https://pldt.medallia.com/sso/pldt/applications/ex_WEB-9/pages/403?roleId=14002&f.calculation=29&f.question-score=k_bp_main_score_scale&f.benchmark=-361&f.timeperiod=359&f.reporting-date=e_responsedate"
-                target="_blank"
-                >Medallia</a
+                class="nav-link dropdown-toggle hover"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link hover"
-                href="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&token=040ebecfa7f5436eb43db9b41be27326&id=UzSk3GO58U-fTXXA3_2oOT0NzF4W0yRCiE7kc3zZguVUNFZaWlVBSTNVOUY3MjhWSzc3UjRXSlJCQSQlQCNjPTEu&analysis=true"
-                target="_blank"
-                >Extraction Link</a
-              >
+                Reports
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item hover">
+                  <a
+                    class="dropdown-item hover"
+                    href="https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&token=040ebecfa7f5436eb43db9b41be27326&id=UzSk3GO58U-fTXXA3_2oOT0NzF4W0yRCiE7kc3zZguVUNFZaWlVBSTFrNmFBpzPfDvDX8m4i7KdjsoNxzK2E62au&analysis=true"
+                    target="_blank"
+                    >Extraction Link</a
+                  >
+                </li>
+                <li class="nav-item hover">
+                  <a
+                    class="dropdown-item hover"
+                    href="https://pldt.medallia.com/sso/pldt/applications/ex_WEB-9/pages/403?roleId=14002&f.calculation=29&f.question-score=k_bp_main_score_scale&f.benchmark=-361&f.timeperiod=359&f.reporting-date=e_responsedate"
+                    target="_blank"
+                    >Medallia</a
+                  >
+                </li>
+                <!-- <li><hr class="dropdown-divider" /></li> -->
+                <li>
+                  <a
+                    class="dropdown-item hover"
+                    href="http://fusehome/FUSE/index.php
+                  "
+                    target="_blank"
+                    >FUSE</a
+                  >
+                </li>
+              </ul>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -138,7 +162,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Other Tools
+                Tools
               </a>
               <ul class="dropdown-menu">
                 <li>
@@ -299,7 +323,7 @@
 
     <section
       id="sectionThree"
-      class="bg-white d-flex justify-content-center align-items-center"
+      class="bg-white d-flex justify-content-center align-items-center p-5"
     >
       <div class="container">
         <div class="text-center p-3">
@@ -364,8 +388,8 @@
       </div>
     </section>
 
-    <footer class="p-3">
-      <div class="container d-flex justify-content-center gap-3">
+    <footer class="p-2">
+      <div class="container d-flex justify-content-center gap-3 mt-3">
         <a href=""
           ><i
             class="fa-brands fa-square-instagram fa-2xl"
@@ -384,8 +408,7 @@
           ><i class="fa-brands fa-salesforce fa-2xl" style="color: #050505"></i>
         </a>
       </div>
-      <p>All rights reserved ©️</p>
-      <p>Developed by: <em>noobutwiz</em> 2024</p>
+      <p id="branding">©️ 2024 | <em>noobutwiz</em></p>
     </footer>
 
     <!-- Button-to-Top -->

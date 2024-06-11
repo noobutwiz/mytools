@@ -77,3 +77,7 @@ footer {
   height: 100%;
   pointer-events: none; /* Make the canvas transparent to mouse events */
 }
+
+#branding {
+  font-size: 15px;
+}
