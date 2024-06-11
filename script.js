@@ -60,10 +60,29 @@ function queryEmployee() {
     document.getElementById("nameInput").value.trim() === ""
   ) {
     // Use Sweet Alert instead of alert
+    // Swal.fire({
+    //   title: "Please enter a name!",
+    //   text: "Are you nuts?",
+    //   icon: "warning",
+    // });
     Swal.fire({
       title: "Please enter a name!",
       text: "Are you nuts?",
       icon: "warning",
+      showClass: {
+        popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+      },
+      hideClass: {
+        popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+      },
     });
     return;
   }

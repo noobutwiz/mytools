@@ -19,7 +19,7 @@ body {
 } */
 
 footer {
-  background-color: #615efc;
+  background-color: #7066e0;
   color: white;
 }
 
@@ -46,18 +46,6 @@ footer {
 .hover:hover {
   /* background-color: #f0f0f0; Example: Light gray background on hover */
   transform: scale(1.05); /* Example: Slightly scale up on hover */
-}
-
-/* For Converter */
-
-/* For Second Converter */
-#secondCard0 {
-  background-color: #80b9ad;
-  position: relative;
-}
-
-#secondCard1 {
-  background-color: #80b9ad;
 }
 
 .hover-size-effect {
