@@ -1,21 +1,26 @@
 body {
+  background-image: url(images/background.jpg);
+  background: linear-gradient(
+    rgba(243, 245, 250, 0.9),
+    rgba(243, 245, 250, 0.9)
+  );
   margin: 0;
 }
 
 #boxResult {
-  height: 300px;
+  height: 500px;
   overflow-y: auto;
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   #boxResult {
     height: auto;
   }
-}
+} */
 
 footer {
-  background-color: black;
-  color: white;
+  /* background-color: black;
+  color: white; */
 }
 
 #sectionOne {
@@ -28,7 +33,7 @@ footer {
 }
 
 #sectionThree {
-  height: 700px;
+  height: auto;
 }
 
 #btn-back-to-top {
