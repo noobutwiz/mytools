@@ -11,6 +11,11 @@ body {
   }
 }
 
+.container-fluid {
+  background-color: #7066e0;
+  padding: 10px, 15px;
+}
+
 #boxResult {
   /* height: 700px; */
   /* overflow-y: auto; */
@@ -30,6 +35,7 @@ footer {
 
 #sectionOne {
   height: auto;
+  margin-top: 75px;
 }
 
 #sectionTwo {
