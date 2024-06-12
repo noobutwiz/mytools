@@ -202,8 +202,9 @@ function convertSeconds(date) {
   if (!input || isNaN(input)) {
     // Show SweetAlert if the input is empty or not a number
     Swal.fire({
-      title: "Invalid Input",
-      text: "Please enter a valid number of seconds.",
+      title: "Invalid Input!",
+      text: "You don't do that.",
+      icon: "warning",
       showClass: {
         popup: `
               animate__animated
