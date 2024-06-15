@@ -133,18 +133,21 @@ function queryEmployee() {
     var columns = rows[i].split(",");
     var employeeName = capitalizeSyllables(columns[0].trim().toLowerCase());
     var employeeId = columns[1] ? columns[1].trim() : "";
-    var tlName = columns[2] ? columns[2].trim() : "";
-    var site = columns[3] ? columns[3].trim() : "";
-    var waveNumber = columns[4] ? columns[4].trim() : "";
-    var hiredDate = columns[5] ? columns[5].trim() : "";
-    var tenure = columns[6] ? columns[6].trim() : "";
-    var agentStatus = columns[7] ? columns[7].trim() : "";
+    var position = columns[2] ? columns[2].trim() : "";
+    var tlName = columns[3] ? columns[3].trim() : "";
+    var site = columns[4] ? columns[4].trim() : "";
+    var waveNumber = columns[5] ? columns[5].trim() : "";
+    var hiredDate = columns[6] ? columns[6].trim() : "";
+    var tenure = columns[7] ? columns[7].trim() : "";
+    var agentStatus = columns[8] ? columns[8].trim() : "";
 
     if (employeeName.includes(name)) {
       // Display employee information
       document.getElementById("result").innerHTML =
         "<p><strong>Employee Name:</strong> " +
         employeeName +
+        "<p><strong>Position:</strong> " +
+        position +
         "</p><p><strong>Employee Number:</strong> " +
         employeeId.toUpperCase() +
         "</p><p><strong>TL Name:</strong> " +
