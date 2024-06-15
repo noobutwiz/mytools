@@ -53,40 +53,43 @@ document.addEventListener("DOMContentLoaded", function () {
   loadCSVFile();
 });
 
-function queryEmployee(event) {
-  var nameInput = document.getElementById("nameInput");
-  var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
-
-  // Check if input field is empty and event type is "submit"
-  if (name === "" && event && event.type === "submit") {
-    event.preventDefault(); // Prevent default form submission behavior
-
+function queryEmployee() {
+  // Check if the search button is clicked within section one and if the input field is empty
+  if (
+    document.getElementById("sectionOne").contains(event.target) &&
+    document.getElementById("nameInput").value.trim() === ""
+  ) {
+    // Use Sweet Alert instead of alert
+    // Swal.fire({
+    //   title: "Please enter a name!",
+    //   text: "Are you nuts?",
+    //   icon: "warning",
+    // });
     Swal.fire({
       title: "Please enter a name!",
       text: "Are you nuts?",
       icon: "warning",
       showClass: {
         popup: `
-          animate__animated
-          animate__fadeInUp
-          animate__faster
-        `,
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
       },
       hideClass: {
         popup: `
-          animate__animated
-          animate__fadeOutDown
-          animate__faster
-        `,
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
       },
     });
     return;
   }
 
-  // Assuming sectionOne contains the input field logic (you may need to adjust as per your HTML structure)
-  if (!document.getElementById("sectionOne").contains(nameInput)) {
-    return;
-  }
+  var name = capitalizeSyllables(
+    document.getElementById("nameInput").value.trim().toLowerCase()
+  );
 
   if (!csvData) {
     console.error("CSV file not loaded.");
