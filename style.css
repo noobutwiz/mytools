@@ -18,6 +18,10 @@ h6 {
   background-color: #7066e0;
 }
 
+.navbar-toggler {
+  color: #fff;
+}
+
 #brand {
   height: 30px;
 }
