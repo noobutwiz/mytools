@@ -53,40 +53,39 @@ document.addEventListener("DOMContentLoaded", function () {
   loadCSVFile();
 });
 
-function queryEmployee(event) {
-  // Stop event propagation to prevent errors if event.target is not a Node
-  event.stopPropagation();
-
+function queryEmployee() {
   // Check if the search button is clicked within section one and if the input field is empty
   if (
     document.getElementById("sectionOne").contains(event.target) &&
     document.getElementById("nameInput").value.trim() === ""
   ) {
     // Use Sweet Alert instead of alert
+    // Swal.fire({
+    //   title: "Please enter a name!",
+    //   text: "Are you nuts?",
+    //   icon: "warning",
+    // });
     Swal.fire({
       title: "Please enter a name!",
       text: "Are you nuts?",
       icon: "warning",
       showClass: {
         popup: `
-          animate__animated
-          animate__fadeInUp
-          animate__faster
-        `,
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
       },
       hideClass: {
         popup: `
-          animate__animated
-          animate__fadeOutDown
-          animate__faster
-        `,
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
       },
     });
-    // Prevent default behavior of the event (e.g., form submission or button click)
-    event.preventDefault();
+    return;
   }
-}
-
 
   // Removed the error in Delevoper Mode in Chrome but with another error.
 
