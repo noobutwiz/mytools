@@ -57,30 +57,30 @@ function queryEmployee() {
   // Check if the search button is clicked within section one and if the input field is empty
   if (
     document.getElementById("sectionOne").contains(event.target) &&
-    document.getElementById("nameInput").value.trim() === ""
+   document.getElementById("nameInput").value.trim() === ""
   ) {
     // Use Sweet Alert instead of alert
     // Swal.fire({
     //   title: "Please enter a name!",
     //   text: "Are you nuts?",
     //   icon: "warning",
-    // });
+     });
     Swal.fire({
-      title: "Please enter a name!",
+     title: "Please enter a name!",
       text: "Are you nuts?",
-      icon: "warning",
-      showClass: {
+     icon: "warning",
+     showClass: {
         popup: `
-              animate__animated
-              animate__fadeInUp
+             animate__animated
+             animate__fadeInUp
               animate__faster
-            `,
-      },
-      hideClass: {
-        popup: `
-              animate__animated
+           `,
+     },
+    hideClass: {
+       popup: `
+             animate__animated
               animate__fadeOutDown
-              animate__faster
+             animate__faster
             `,
       },
     });
@@ -89,35 +89,35 @@ function queryEmployee() {
 
   // Removed the error in Delevoper Mode in Chrome but with another error.
 
-  // function queryEmployee(event) {
-  //   var nameInput = document.getElementById("nameInput");
-  //   var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
+  function queryEmployee(event) {
+    var nameInput = document.getElementById("nameInput");
+    var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
 
-  //   // Check if input field is empty and event type is "submit"
-  //   if (name === "" && event && event.type === "submit") {
-  //     event.preventDefault(); // Prevent default form submission behavior
+   // Check if input field is empty and event type is "submit"
+   if (name === "" && event && event.type === "submit") {
+     event.preventDefault(); // Prevent default form submission behavior
 
-  //     Swal.fire({
-  //       title: "Please enter a name!",
-  //       text: "Are you nuts?",
-  //       icon: "warning",
-  //       showClass: {
-  //         popup: `
-  //           animate__animated
-  //           animate__fadeInUp
-  //           animate__faster
-  //         `,
-  //       },
-  //       hideClass: {
-  //         popup: `
-  //           animate__animated
-  //           animate__fadeOutDown
-  //           animate__faster
-  //         `,
-  //       },
-  //     });
-  //     return;
-  //   }
+     Swal.fire({
+       title: "Please enter a name!",
+       text: "Are you nuts?",
+       icon: "warning",
+       showClass: {
+         popup: `
+           animate__animated
+           animate__fadeInUp
+           animate__faster
+         `,
+       },
+       hideClass: {
+         popup: `
+           animate__animated
+           animate__fadeOutDown
+           animate__faster
+         `,
+       },
+     });
+     return;
+   }
 
   var name = capitalizeSyllables(
     document.getElementById("nameInput").value.trim().toLowerCase()
@@ -129,191 +129,7 @@ function queryEmployee() {
   }
 
   var rows = csvData.split("\n");
-  for (var i = 0; i < rows.length; i++) {
-    var columns = rows[i].split(",");
-    var employeeName = capitalizeSyllables(columns[0].trim().toLowerCase());
-    var employeeId = columns[1] ? columns[1].trim() : "";
-    var position = columns[2] ? columns[2].trim() : "";
-    var tlName = columns[3] ? columns[3].trim() : "";
-    var site = columns[4] ? columns[4].trim() : "";
-    var waveNumber = columns[5] ? columns[5].trim() : "";
-    var hiredDate = columns[6] ? columns[6].trim() : "";
-    var tenure = columns[7] ? columns[7].trim() : "";
-    var agentStatus = columns[8] ? columns[8].trim() : "";
-
-    if (employeeName.includes(name)) {
-      // Display employee information
-      document.getElementById("result").innerHTML =
-        "<p><strong>Employee Name:</strong> " +
-        employeeName +
-        "<p><strong>Position:</strong> " +
-        position +
-        "</p><p><strong>Employee Number:</strong> " +
-        employeeId.toUpperCase() +
-        "</p><p><strong>TL Name:</strong> " +
-        tlName +
-        "</p><p><strong>Site:</strong> " +
-        site +
-        "</p><p><strong>Wave Number:</strong> " +
-        waveNumber +
-        "</p><p><strong>Hired Date:</strong> " +
-        hiredDate +
-        "</p><p><strong>Tenure:</strong> " +
-        tenure +
-        "</p><p><strong>Agent Status:</strong> " +
-        agentStatus +
-        "</p>";
-      document.getElementById("wrapIDResult").style.display = "block";
-      return; // Exit the loop once found
-    }
-  }
-
-  // If loop completes without finding the employee
-  document.getElementById("result").innerText = "Employee not found.";
-  document.getElementById("wrapIDResult").style.display = "block";
-}
-
-// FOR CONVERTER
-
-var conversionChart;
-var conversionData = {}; // Object to store conversion count per date
-
-// Function to retrieve conversion data from local storage
-function retrieveConversionData() {
-  var storedData = localStorage.getItem("conversionData");
-  if (storedData) {
-    conversionData = JSON.parse(storedData);
-  }
-}
-
-// Function to save conversion data to local storage
-function saveConversionData() {
-  localStorage.setItem("conversionData", JSON.stringify(conversionData));
-}
-
-// Initialize chart
-var ctx = document.getElementById("conversionChart").getContext("2d");
-conversionChart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: [],
-    datasets: [
-      {
-        label: "Number of Conversions",
-        data: [],
-        backgroundColor: "#0086FF",
-        borderColor: "#0d6efd",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
-  },
-});
-
-// Function to update chart with conversion data
-function updateChart() {
-  conversionChart.data.labels = Object.keys(conversionData);
-  conversionChart.data.datasets[0].data = Object.values(conversionData);
-  conversionChart.update();
-}
-
-// Retrieve conversion data from local storage
-retrieveConversionData();
-// Update chart with retrieved conversion data
-updateChart();
-
-function convertSeconds(date) {
-  var input = document.getElementById("secondsInput").value;
-  if (!input || isNaN(input)) {
-    // Show SweetAlert if the input is empty or not a number
-    Swal.fire({
-      title: "Invalid Input!",
-      text: "You don't do that.",
-      icon: "warning",
-      showClass: {
-        popup: `
-              animate__animated
-              animate__fadeInUp
-              animate__faster
-            `,
-      },
-      hideClass: {
-        popup: `
-              animate__animated
-              animate__fadeOutDown
-              animate__faster
-            `,
-      },
-    });
-    return;
-  }
-
-  var seconds = parseInt(input);
-  var minutes = Math.floor(seconds / 60);
-  var remainingSeconds = seconds % 60;
-  var resultConversionString =
-    seconds +
-    " Seconds = " +
-    (minutes + remainingSeconds / 60).toFixed(2) +
-    " Minutes = ";
-  if (minutes === 1) {
-    resultConversionString += "1 Minute";
-  } else {
-    resultConversionString += minutes + " Minutes";
-  }
-  resultConversionString += " and ";
-  if (remainingSeconds === 1) {
-    resultConversionString += "1 Second";
-  } else {
-    resultConversionString += remainingSeconds + " Seconds";
-  }
-  document.getElementById("resultConversion").innerText =
-    resultConversionString;
-
-  // Increment the conversion count for the provided date or today's date if not provided
-  var currentDate = date ? date.toDateString() : new Date().toDateString();
-  if (!conversionData[currentDate]) {
-    conversionData[currentDate] = 1;
-  } else {
-    conversionData[currentDate]++;
-  }
-
-  // Update chart with new data
-  updateChart();
-  // Save conversion data to local storage
-  saveConversionData();
-}
-
-// Event listener for "Enter" key press
-document
-  .getElementById("secondsInput")
-  .addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      convertSeconds();
-    }
-  });
-
-// FOR BACK-TO-TOP BUTTON
-
-// Get the button
-let mybutton = document.getElementById("btn-back-to-top");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.addEventListener("scroll", scrollFunction);
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  for (var i = 0; i < rows.length; i++) { var columns=rows[i].split("," ); var employeeName=capitalizeSyllables(columns[0].trim().toLowerCase()); var employeeId=columns[1] ? columns[1].trim() :"" ; var position=columns[2] ? columns[2].trim() :"" ; var tlName=columns[3] ? columns[3].trim() :"" ; var site=columns[4] ? columns[4].trim() :"" ; var waveNumber=columns[5] ? columns[5].trim() :"" ; var hiredDate=columns[6] ? columns[6].trim() :"" ; var tenure=columns[7] ? columns[7].trim() :"" ; var agentStatus=columns[8] ? columns[8].trim() :"" ; if (employeeName.includes(name)) { Display employee information document.getElementById("result").innerHTML="<p><strong>Employee Name:</strong> " + employeeName +"<p><strong>Position:</strong> " + position +"</p><p><strong>Employee Number:</strong> " + employeeId.toUpperCase() +"</p><p><strong>TL Name:</strong> " + tlName +"</p><p><strong>Site:</strong> " + site +"</p><p><strong>Wave Number:</strong> " + waveNumber +"</p><p><strong>Hired Date:</strong> " + hiredDate +"</p><p><strong>Tenure:</strong> " + tenure +"</p><p><strong>Agent Status:</strong> " + agentStatus +"</p>" ; document.getElementById("wrapIDResult").style.display="block" ; return; Exit the loop once found } } If loop completes without finding the employee document.getElementById("result").innerText="Employee not found." ; document.getElementById("wrapIDResult").style.display="block" ; } FOR CONVERTER var conversionChart; var conversionData={}; Object to store conversion count per date Function to retrieve conversion data from local storage function retrieveConversionData() { var storedData=localStorage.getItem("conversionData" ); if (storedData) { conversionData=JSON.parse(storedData); } } Function to save conversion data to local storage function saveConversionData() { localStorage.setItem("conversionData", JSON.stringify(conversionData)); } Initialize chart var ctx=document.getElementById("conversionChart" ).getContext("2d"); conversionChart=new Chart(ctx, { type:"bar" , data: { labels: [], datasets: [ { label:"Number of Conversions" , data: [], backgroundColor:"#0086FF" , borderColor:"#0d6efd" , borderWidth: 1, }, ], }, options: { scales: { yAxes: [ { ticks: { beginAtZero: true, }, }, ], }, }, }); Function to update chart with conversion data function updateChart() { conversionChart.data.labels=Object.keys(conversionData); conversionChart.data.datasets[0].data=Object.values(conversionData); conversionChart.update(); } Retrieve conversion data from local storage retrieveConversionData(); Update chart with retrieved conversion data updateChart(); function convertSeconds(date) { var input=document.getElementById("secondsInput" ).value; if (!input || isNaN(input)) { Show SweetAlert if the input is empty or not a number Swal.fire({ title:"Invalid Input!" , text:"You don't do that." , icon:"warning" , showClass: { popup: ` animate__animated animate__fadeInUp animate__faster `, }, hideClass: { popup: ` animate__animated animate__fadeOutDown animate__faster `, }, }); return; } var seconds=parseInt(input); var minutes=Math.floor(seconds 60); var remainingSeconds=seconds % 60; var resultConversionString=seconds +" Seconds = " + (minutes + remainingSeconds 60).toFixed(2) +" Minutes = " ; if (minutes===1) { resultConversionString +="1 Minute" ; } else { resultConversionString +=minutes +" Minutes" ; } resultConversionString +=" and " ; if (remainingSeconds===1) { resultConversionString +="1 Second" ; } else { resultConversionString +=remainingSeconds +" Seconds" ; } document.getElementById("resultConversion").innerText=resultConversionString; Increment the conversion count for the provided date or today's date if not provided var currentDate=date ? date.toDateString() : new Date().toDateString(); if (!conversionData[currentDate]) { conversionData[currentDate]=1; } else { conversionData[currentDate]++; } Update chart with new data updateChart(); Save conversion data to local storage saveConversionData(); } Event listener for"Enter" key press document .getElementById("secondsInput") .addEventListener("keypress", function (event) { if (event.keyCode===13) { event.preventDefault(); convertSeconds(); } }); FOR BACK-TO-TOP BUTTON Get the button let mybutton=document.getElementById("btn-back-to-top" ); When the user scrolls down 20px from the top of the document, show the button window.addEventListener("scroll", scrollFunction); function scrollFunction() { if (document.body.scrollTop> 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
