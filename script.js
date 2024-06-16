@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
 
     // Check if input field is empty and event type is "submit"
-    if (name === "" && event.type === "submit") {
+    if (name === "" && event && event.type === "submit") {
       event.preventDefault(); // Prevent default form submission behavior
 
       Swal.fire({
