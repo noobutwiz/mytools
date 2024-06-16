@@ -53,71 +53,71 @@ document.addEventListener("DOMContentLoaded", function () {
   loadCSVFile();
 });
 
-// function queryEmployee() {
-//   // Check if the search button is clicked within section one and if the input field is empty
-//   if (
-//     document.getElementById("sectionOne").contains(event.target) &&
-//     document.getElementById("nameInput").value.trim() === ""
-//   ) {
-//     // Use Sweet Alert instead of alert
-//     // Swal.fire({
-//     //   title: "Please enter a name!",
-//     //   text: "Are you nuts?",
-//     //   icon: "warning",
-//     // });
-//     Swal.fire({
-//       title: "Please enter a name!",
-//       text: "Are you nuts?",
-//       icon: "warning",
-//       showClass: {
-//         popup: `
-//               animate__animated
-//               animate__fadeInUp
-//               animate__faster
-//             `,
-//       },
-//       hideClass: {
-//         popup: `
-//               animate__animated
-//               animate__fadeOutDown
-//               animate__faster
-//             `,
-//       },
-//     });
-//     return;
-//   }
+function queryEmployee() {
+  // Check if the search button is clicked within section one and if the input field is empty
+  if (
+    document.getElementById("sectionOne").contains(event.target) &&
+    document.getElementById("nameInput").value.trim() === ""
+  ) {
+    // Use Sweet Alert instead of alert
+    // Swal.fire({
+    //   title: "Please enter a name!",
+    //   text: "Are you nuts?",
+    //   icon: "warning",
+    // });
+    Swal.fire({
+      title: "Please enter a name!",
+      text: "Are you nuts?",
+      icon: "warning",
+      showClass: {
+        popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+      },
+      hideClass: {
+        popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+      },
+    });
+    return;
+  }
 
   // Removed the error in Delevoper Mode in Chrome but with another error.
 
-  function queryEmployee(event) {
-    var nameInput = document.getElementById("nameInput");
-    var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
+  // function queryEmployee(event) {
+  //   var nameInput = document.getElementById("nameInput");
+  //   var name = capitalizeSyllables(nameInput.value.trim().toLowerCase());
 
-    // Check if input field is empty and event type is "submit"
-    if (name === "" && event && event.type === "submit") {
-      event.preventDefault(); // Prevent default form submission behavior
+  //   // Check if input field is empty and event type is "submit"
+  //   if (name === "" && event && event.type === "submit") {
+  //     event.preventDefault(); // Prevent default form submission behavior
 
-      Swal.fire({
-        title: "Please enter a name!",
-        text: "Are you nuts?",
-        icon: "warning",
-        showClass: {
-          popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `,
-        },
-        hideClass: {
-          popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `,
-        },
-      });
-      return;
-    }
+  //     Swal.fire({
+  //       title: "Please enter a name!",
+  //       text: "Are you nuts?",
+  //       icon: "warning",
+  //       showClass: {
+  //         popup: `
+  //           animate__animated
+  //           animate__fadeInUp
+  //           animate__faster
+  //         `,
+  //       },
+  //       hideClass: {
+  //         popup: `
+  //           animate__animated
+  //           animate__fadeOutDown
+  //           animate__faster
+  //         `,
+  //       },
+  //     });
+  //     return;
+  //   }
 
   var name = capitalizeSyllables(
     document.getElementById("nameInput").value.trim().toLowerCase()
