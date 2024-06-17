@@ -18,3 +18,7 @@ var theRestOfTheLetter = name.slice(1, name.length);
 var theRestOfTheLetter = theRestOfTheLetter.toLowerCase();
 var capitalizedName = firstLetter + theRestOfTheLetter;
 alert("Hi " + capitalizedName + " Welcome Back!");
+
+var dogAge = prompt("What is your dog age?");
+humanAge = (dogAge - 2) * 4 + 21;
+alert("Your dog age is " + humanAge + " years in human");
