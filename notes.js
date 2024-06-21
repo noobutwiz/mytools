@@ -23,26 +23,28 @@
 // humanAge = (dogAge - 2) * 4 + 21;
 // alert("Your dog age is " + humanAge + " years old in human years.");
 
-function getMilk() {
-  alert("leaveHouse");
-  alert("moveRight");
-  alert("moveRight");
-  alert("moveUp");
-  alert("moveUp");
-  alert("moveUp");
-  alert("moveUp");
-  alert("moveRight");
-  alert("moveRight");
-  alert("buyMilk");
-  alert("moveLeft");
-  alert("moveLeft");
-  alert("moveDown");
-  alert("moveDown");
-  alert("moveDown");
-  alert("moveDown");
-  alert("moveLeft");
-  alert("moveLeft");
-  alert("enterHouse");
+function getMilk(money) {
+  money = prompt(money);
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  var numberOfBottles = Math.floor(money / 1.5);
+  console.log("buy " + numberOfBottles + " bottles of Milk");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
 }
 
 getMilk();
