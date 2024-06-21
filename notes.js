@@ -134,6 +134,30 @@
 
 // console.log(n);
 
+// LOVE SCORE
+
+// var name1 = prompt("Person 1");
+// var name2 = prompt("Person 2");
+
+// var name1FirstLetter = name1.slice(0, length);
+// var name1FirstLetter = name1FirstLetter.toUpperCase();
+// var name1TheRest = name1.slice(1, name1.length);
+// var name1TheRest = name1TheRest.toLowerCase();
+// var name1Final = name1FirstLetter + name1TheRest;
+
+// var name2FirstLetter = name2.slice(0, length);
+// var name2FirstLetter = name2FirstLetter.toUpperCase();
+// var name2TheRest = name2.slice(1, name2.length);
+// var name2TheRest = name2TheRest.toLowerCase();
+// var name2Final = name2FirstLetter + name2TheRest;
+
+// var love = Math.random() * 100;
+// love = Math.floor(love) + 1;
+
+// alert(name1Final + " and " + name2Final + " are " + love + "% match!!");
+
+// END OF LOVE SCORE
+
 var name1 = prompt("Person 1");
 var name2 = prompt("Person 2");
 
@@ -150,8 +174,17 @@ var name2TheRest = name2TheRest.toLowerCase();
 var name2Final = name2FirstLetter + name2TheRest;
 
 var love = Math.random() * 100;
+// var love = prompt("Enter love"); // to test via manual input
 love = Math.floor(love) + 1;
+// love = Math.floor(love); // to test via manual input
 
-alert(
-  name1Final + " and " + name2Final + " are " + love + "% perfectly match!!"
-);
+if (love > 91) {
+  alert(name1Final + " and " + name2Final + " are " + love + "% Match!");
+}
+if (love > 71 && love <= 90) {
+  alert(
+    "Finally! " + name1Final + " and " + name2Final + " is " + love + "% match."
+  );
+}
+
+console.log(love);
