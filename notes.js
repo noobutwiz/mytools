@@ -41,40 +41,74 @@
 //   );
 // }
 
-function getMilk(money) {
-  money = prompt(money);
-  console.log("leaveHouse");
-  console.log("moveRight");
-  console.log("moveRight");
-  console.log("moveUp");
-  console.log("moveUp");
-  console.log("moveUp");
-  console.log("moveUp");
-  console.log("moveRight");
-  console.log("moveRight");
-  var numberOfBottles = Math.floor(money / 1.5);
-  console.log("buy " + calcBottles(money, 1.5) + " bottles of Milk");
-  console.log("moveLeft");
-  console.log("moveLeft");
-  console.log("moveDown");
-  console.log("moveDown");
-  console.log("moveDown");
-  console.log("moveDown");
-  console.log("moveLeft");
-  console.log("moveLeft");
-  console.log("enterHouse");
+// function getMilk(money) {
+//   money = prompt(money);
+//   console.log("leaveHouse");
+//   console.log("moveRight");
+//   console.log("moveRight");
+//   console.log("moveUp");
+//   console.log("moveUp");
+//   console.log("moveUp");
+//   console.log("moveUp");
+//   console.log("moveRight");
+//   console.log("moveRight");
+//   var numberOfBottles = Math.floor(money / 1.5);
+//   console.log("buy " + calcBottles(money, 1.5) + " bottles of Milk");
+//   console.log("moveLeft");
+//   console.log("moveLeft");
+//   console.log("moveDown");
+//   console.log("moveDown");
+//   console.log("moveDown");
+//   console.log("moveDown");
+//   console.log("moveLeft");
+//   console.log("moveLeft");
+//   console.log("enterHouse");
 
-  return calcChange(money, 1.5);
+//   return calcChange(money, 1.5);
+// }
+
+// function calcBottles(startingMoney, costPerBottle) {
+//   var numberOfBottles = Math.floor(startingMoney / costPerBottle);
+//   return numberOfBottles;
+// }
+
+// function calcChange(startingAmount, costPerBottle) {
+//   var change = startingAmount % costPerBottle;
+//   return change;
+// }
+
+// console.log("Hello Master, here is your " + getMilk() + " change.");
+
+// BMI Calculator:
+
+var height = prompt("What is you height in meters?");
+var weight = prompt("What is your weight in kilogram?");
+
+var calculatedHeight = height * height;
+
+function bmiCalculator() {
+  var result = weight / calculatedHeight;
+  return result;
 }
 
-function calcBottles(startingMoney, costPerBottle) {
-  var numberOfBottles = Math.floor(startingMoney / costPerBottle);
-  return numberOfBottles;
+console.log(
+  "Your BMI is " + Math.floor(bmiCalculator()) + ". Please stay healthy!"
+);
+console.log(bmiCalculator());
+
+// Another solution using Math.pow:
+
+var height = prompt("What is you height in meters?");
+var weight = prompt("What is your weight in kilogram?");
+
+var calculatedHeight = Math.pow(height, 2);
+
+function bmiCalculator() {
+  var result = weight / calculatedHeight;
+  return result;
 }
 
-function calcChange(startingAmount, costPerBottle) {
-  var change = startingAmount % costPerBottle;
-  return change;
-}
-
-console.log("Hello Master, here is your " + getMilk() + " change.");
+console.log(
+  "Your BMI is " + Math.floor(bmiCalculator()) + ". Please stay healthy!"
+);
+console.log(bmiCalculator());
