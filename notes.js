@@ -81,34 +81,77 @@
 
 // BMI Calculator:
 
-var height = prompt("What is you height in meters?");
-var weight = prompt("What is your weight in kilogram?");
+// var height = prompt("What is you height in meters?");
+// var weight = prompt("What is your weight in kilogram?");
 
-var calculatedHeight = height * height;
+// var calculatedHeight = height * height;
 
-function bmiCalculator() {
-  var result = weight / calculatedHeight;
-  return result;
-}
+// function bmiCalculator() {
+//   var result = weight / calculatedHeight;
+//   return result;
+// }
 
-console.log(
-  "Your BMI is " + Math.floor(bmiCalculator()) + ". Please stay healthy!"
+// console.log(
+//   "Your BMI is " + Math.floor(bmiCalculator()) + ". Please stay healthy!"
+// );
+// console.log(bmiCalculator());
+
+// Another solution for BMI Calculator using Math.pow with result using Math.round:
+
+// var height = prompt("What is you height in meters?");
+// var weight = prompt("What is your weight in kilogram?");
+
+// var calculatedHeight = Math.pow(height, 2);
+
+// function bmiCalculator() {
+//   var result = weight / calculatedHeight;
+//   return result;
+// }
+
+// console.log(
+//   "Your BMI is " + Math.round(bmiCalculator()) + ". Please stay healthy!"
+// );
+// console.log(bmiCalculator());
+
+// Sablay to!!!
+
+// var n = Math.random(prompt("Give a number from a dice"));
+
+// function randomNumberFromDice() {
+//     var randomN = n * 6;
+//     return randomN;
+
+// }
+
+// console.log("This is a random number " + Math.floor(randomNumberFromDice()) + "." );
+
+// end of Sablay to!!!
+
+// var n = Math.random();
+
+// n = n * 6;
+// n = Math.floor(n) + 1;
+
+// console.log(n);
+
+var name1 = prompt("Person 1");
+var name2 = prompt("Person 2");
+
+var name1FirstLetter = name1.slice(0, length);
+var name1FirstLetter = name1FirstLetter.toUpperCase();
+var name1TheRest = name1.slice(1, name1.length);
+var name1TheRest = name1TheRest.toLowerCase();
+var name1Final = name1FirstLetter + name1TheRest;
+
+var name2FirstLetter = name2.slice(0, length);
+var name2FirstLetter = name2FirstLetter.toUpperCase();
+var name2TheRest = name2.slice(1, name2.length);
+var name2TheRest = name2TheRest.toLowerCase();
+var name2Final = name2FirstLetter + name2TheRest;
+
+var love = Math.random() * 100;
+love = Math.floor(love) + 1;
+
+alert(
+  name1Final + " and " + name2Final + " are " + love + "% perfectly match!!"
 );
-console.log(bmiCalculator());
-
-// Another solution using Math.pow with result using Math.round:
-
-var height = prompt("What is you height in meters?");
-var weight = prompt("What is your weight in kilogram?");
-
-var calculatedHeight = Math.pow(height, 2);
-
-function bmiCalculator() {
-  var result = weight / calculatedHeight;
-  return result;
-}
-
-console.log(
-  "Your BMI is " + Math.round(bmiCalculator()) + ". Please stay healthy!"
-);
-console.log(bmiCalculator());
