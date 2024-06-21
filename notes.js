@@ -96,7 +96,7 @@ console.log(
 );
 console.log(bmiCalculator());
 
-// Another solution using Math.pow:
+// Another solution using Math.pow with result using Math.round:
 
 var height = prompt("What is you height in meters?");
 var weight = prompt("What is your weight in kilogram?");
@@ -109,6 +109,6 @@ function bmiCalculator() {
 }
 
 console.log(
-  "Your BMI is " + Math.floor(bmiCalculator()) + ". Please stay healthy!"
+  "Your BMI is " + Math.round(bmiCalculator()) + ". Please stay healthy!"
 );
 console.log(bmiCalculator());
