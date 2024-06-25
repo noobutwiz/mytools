@@ -141,6 +141,14 @@ function queryEmployee() {
     var tenure = columns[7] ? columns[7].trim() : "";
     var agentStatus = columns[8] ? columns[8].trim() : "";
 
+    // Determine color based on agentStatus
+    var statusColor = "";
+    if (agentStatus.toLowerCase() === "active") {
+      statusColor = "green";
+    } else {
+      statusColor = "red";
+    }
+
     if (employeeName.includes(name)) {
       // Display employee information
       document.getElementById("result").innerHTML =
@@ -160,9 +168,11 @@ function queryEmployee() {
         hiredDate +
         "</p><p><strong>Tenure:</strong> " +
         tenure +
-        "</p><p><strong>Agent Status:</strong> " +
+        "</p><p><strong>Agent Status:</strong> <span style='color: " +
+        statusColor +
+        ";'>" +
         agentStatus +
-        "</p>";
+        "</span></p>";
       document.getElementById("wrapIDResult").style.display = "block";
       return; // Exit the loop once found
     }
