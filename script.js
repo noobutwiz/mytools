@@ -168,11 +168,11 @@ function queryEmployee() {
         hiredDate +
         "</p><p><strong>Tenure:</strong> " +
         tenure +
-        "</p><p><strong>Agent Status:</strong> <span style='color: " +
+        "</p><p><strong>Agent Status:</strong> <strong><span style='color: " +
         statusColor +
         ";'>" +
         agentStatus +
-        "</span></p>";
+        "</span></strong></p>";
       document.getElementById("wrapIDResult").style.display = "block";
       return; // Exit the loop once found
     }
