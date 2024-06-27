@@ -230,7 +230,10 @@
                   placeholder="Enter the employee name"
                   aria-label="Employee Name"
                   aria-describedby="basic-addon1"
+                  oninput="suggestName(this.value)"
+                  list="nameSuggestions"
                 />
+                <datalist id="nameSuggestions"></datalist>
               </div>
 
               <button

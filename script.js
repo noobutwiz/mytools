@@ -53,6 +53,42 @@ document.addEventListener("DOMContentLoaded", function () {
   loadCSVFile();
 });
 
+// Name suggestion
+let namesData = []; // Array to store names from CSV file
+
+function fetchDataFromCSV() {
+  fetch("employees.csv")
+    .then((response) => response.text())
+    .then((data) => {
+      // Parse CSV data
+      const rows = data.split("\n");
+      namesData = rows.map((row) => {
+        // Assuming each row is comma-separated and column A is the first column (index 0)
+        const columns = row.split(",");
+        return columns[0].trim(); // Extracting and trimming the first column (column A)
+      });
+      populateNameSuggestions(namesData);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}
+
+function populateNameSuggestions(names) {
+  const datalist = document.getElementById("nameSuggestions");
+  datalist.innerHTML = "";
+
+  names.forEach((name) => {
+    const option = document.createElement("option");
+    option.value = name;
+    datalist.appendChild(option);
+  });
+}
+
+// Fetch data from CSV file and populate suggestions on page load
+fetchDataFromCSV();
+// End of Name suggestion
+
 function queryEmployee() {
   // Check if the search button is clicked within section one and if the input field is empty
   if (
